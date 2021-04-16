@@ -1,0 +1,12 @@
+{
+  "name": "@seen-ui/utils",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "devDependencies": {
+    "@vue/runtime-core": "^3.0.0",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "seen-ui": "^1.0.0"
+  }
+}
