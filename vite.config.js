@@ -1,5 +1,6 @@
 //  解析md文件
 import vitePluginVuedoc from "vite-plugin-vuedoc";
+// import vue from '@vitejs/plugin-vue'
 
 const config = {
   base: "./",
@@ -11,6 +12,7 @@ const config = {
         theme: "okaidia",
       },
     }),
+    // vue()
   ],
 };
 
