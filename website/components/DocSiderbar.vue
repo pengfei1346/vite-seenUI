@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="left-siderbar fixed inset-0 h-full z-90 w-full border-b -mb-16 lg:-mb-0 lg:static lg:h-auto lg:overflow-y-visible lg:border-b-0 lg:pt-0 lg:w-1/4 lg:block lg:border-0 xl:w-1/5 hidden pt-16"
+    class="left-siderbar"
   >
     <nav
       class="h-full overflow-y-auto scrolling-touch lg:h-auto lg:block lg:relative lg:sticky lg:bg-transparent overflow-hidden lg:top-16 bg-white"
@@ -50,6 +50,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+aside {
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  border-bottom-width: 1px;
+  margin-bottom: -4rem;
+  padding-top: 4rem;
+
+
+
+
+
+}
   .left-siderbar {
 
   }

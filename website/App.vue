@@ -8,7 +8,7 @@
       <div class="flex align-start">
 
         <!-- sidebar -->
-        <doc-siderbar />
+        <doc-siderbar class="siderbar"/>
 
         <!-- content -->
         <div class="content flex">
@@ -39,7 +39,12 @@ export default {
     margin-left: auto;
     margin-right: auto;
 
+    .siderbar {
+      flex: 1;
+    }
+
     .content {
+      flex: 3;
       width: 100%;
       min-height: 100vh;
     }
