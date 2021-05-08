@@ -2,7 +2,7 @@ import { ComponentOptions } from "vue";
 
 import introDoc from "../../README.md";
 import buttonDoc from "../../packages/components/button/README.md";
-import themeDoc from "../../packages/theme/README.md";
+import themeDoc from "../../packages/theme-chalk/README.md";
 import utilsDoc from "../../packages/utils/README.md";
 
 declare type Menu = {

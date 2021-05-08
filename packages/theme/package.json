@@ -1,8 +1,0 @@
-{
-  "name": "@seen-ui/theme",
-  "version": "1.0.0",
-  "main": "index.css",
-  "dependencies": {
-    "seen-ui": "^1.0.0"
-  }
-}
