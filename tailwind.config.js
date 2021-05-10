@@ -1,6 +1,12 @@
 module.exports = {
-  purge: false,
-  darkMode: "class",
+  purge: ['./index.html', './website/**/*.{vue,js,ts,jsx,tsx}'],
+  darkMode: "class", //  false  or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
   typography: (theme) => ({
     dark: {
       css: {
@@ -19,4 +25,4 @@ module.exports = {
       modifiers: [],
     }),
   ],
-};
+}

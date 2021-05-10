@@ -4,14 +4,14 @@
   >
     <doc-header />
 
-    <main class="w-full max-w-screen-xl mx-auto px-6">
-      <div class="lg:flex -mx-6">
+    <main class="main">
+      <div class="flex align-start">
 
         <!-- sidebar -->
-        <doc-siderbar />
+        <doc-siderbar class="siderbar"/>
 
         <!-- content -->
-        <div class="flex min-h-screen w-full lg:w-3/4 xl:w-4/5">
+        <div class="content flex">
           <router-view />
         </div>
 
@@ -29,3 +29,24 @@ export default {
   components: { DocHeader, DocSiderbar },
 };
 </script>
+
+<style scoped lang="scss">
+  .main {
+    width: 100%;
+    max-width: 1280px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    .siderbar {
+      flex: 1;
+    }
+
+    .content {
+      flex: 3;
+      width: 100%;
+      min-height: 100vh;
+    }
+  }
+</style>

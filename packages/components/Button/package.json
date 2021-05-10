@@ -6,7 +6,7 @@
     "vue": "^3.0.0"
   },
   "dependencies": {
-    "@seen-ui/theme": "^1.0.0",
+    "@seen-ui/theme-chalk": "^1.0.0",
     "@seen-ui/utils": "^1.0.0",
     "seen-ui": "^1.0.0"
   }

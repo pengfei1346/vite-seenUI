@@ -1,5 +1,8 @@
 //  解析md文件
 import vitePluginVuedoc from "vite-plugin-vuedoc";
+// import vue from '@vitejs/plugin-vue'
+
+// const resolve = dir => path.resolve(__dirname, dir);
 
 const config = {
   base: "./",
@@ -11,7 +14,14 @@ const config = {
         theme: "okaidia",
       },
     }),
+    // vue()
   ],
+  // alias: {
+  //   '@': resolve('./src'),
+  //   '@components': resolve('./src/components'),
+  //   '@views': resolve('./src/views'),
+  //   '@assets': resolve('./src/assets')
+  // }
 };
 
 export default config;

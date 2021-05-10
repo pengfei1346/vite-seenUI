@@ -1,23 +1,17 @@
 <template>
-  <aside
-    class="fixed inset-0 h-full z-90 w-full border-b -mb-16 lg:-mb-0 lg:static lg:h-auto lg:overflow-y-visible lg:border-b-0 lg:pt-0 lg:w-1/4 lg:block lg:border-0 xl:w-1/5 hidden pt-16"
-  >
-    <nav
-      class="h-full overflow-y-auto scrolling-touch lg:h-auto lg:block lg:relative lg:sticky lg:bg-transparent overflow-hidden lg:top-16 bg-white"
-    >
+  <aside>
+    <nav>
       <div
-        class="px-6 pt-6 overflow-y-auto text-base lg:text-sm lg:pt-8 lg:pl-6 lg:pr-8 sticky?lg:h-(screen-16)"
+        class="container"
         v-for="subMenu in menuConfig"
       >
-        <h2
-          class="mb-3 lg:mb-2 uppercase font-bold lg:text-xs text-gray-700 dark:text-gray-300"
-        >
+        <h2>
           {{ subMenu.name }}
         </h2>
         <ul>
-          <li class="mb-3 lg:mb-1" v-for="menu in subMenu.children">
+          <li v-for="menu in subMenu.children">
             <router-link
-              class="px-2 -mx-2 py-1 transition duration-200 ease-in-out relative block text-gray-500 font-medium"
+              class="li-item"
               :class="{
                 'hover:translate-x-2px': $route.name !== menu.name,
                 'hover:text-gray-900': $route.name !== menu.name,
@@ -26,7 +20,6 @@
               :to="`/doc/${menu.path}`"
             >
               <span
-                class="relative font-normal"
                 :class="{ 'font-bold': $route.name === menu.name }"
                 >{{ menu.name }}</span
               >
@@ -37,6 +30,7 @@
     </nav>
   </aside>
 </template>
+
 <script lang="ts">
 import { menuConfig } from "../router/demo-routes";
 export default {
@@ -47,3 +41,57 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+aside {
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  border-bottom-width: 1px;
+  padding-top: 40px;
+
+  nav {
+    height: 100%;
+    overflow-y: auto;
+    background: #fff;
+
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-top: 1.5rem;
+      overflow-y: auto;
+      font-size: 1rem;
+      line-height: 1.5rem;
+
+      h2 {
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: rgba(55, 65, 81, 1);
+
+      }
+
+      ul > li {
+        margin-bottom: 0.75rem;
+
+        .li-item {
+          padding: 0.25rem 0.5rem;
+          transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-duration: 200ms;
+          position: relative;
+          display: block;
+          color: rgba(107, 114, 128, 1);
+          font-weight: 500;
+
+          span {
+            position: relative;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+</style>

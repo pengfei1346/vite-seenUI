@@ -1,11 +1,11 @@
 <template>
   <header
-    class="flex border-b border-gray-200 top-0 inset-x-0 z-100 h-16 items-center dark:border-gray-500"
+    class="header-wrapper"
   >
     <div
-      class="container relative max-w-screen-xl mx-auto px-4 flex items-center h-full"
+      class="container justify-between align-center"
     >
-      <div class="w-1/3">
+      <div>
         <router-link
           class="block mr-4 text-2xl text-black dark:text-gray-200"
           to="/"
@@ -13,15 +13,15 @@
           seen-ui-vite
         </router-link>
       </div>
-      <div class="w-1/2"></div>
-      <div class="flex w-1/6 space-x-6">
+
+      <div class="flex justify-between align-center">
         <a
-          class="flex items-center text-gray-500"
+          class="margin-right flex items-center text-gray-500"
           href="https://github.com/pengfei1346/vite-seenUI"
         >
           <Icon icon="codicon:github" height="24" />
         </a>
-        <div class="flex items-center text-gray-500">
+        <div class="flex justify-between align-center">
           <Icon
             :icon="isDark ? 'carbon:moon' : 'carbon:sun'"
             @click="isDark = !isDark"
@@ -31,6 +31,7 @@
     </div>
   </header>
 </template>
+
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Icon, addCollection } from "@iconify/vue";
@@ -52,3 +53,39 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped lang="scss">
+  .header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #E5E7EB;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    height: 4rem;
+    //border-color: rgba(107, 114, 128, 1);
+
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      display: flex;
+      align-items: center;
+
+    }
+  }
+
+  .text-gray-500 {
+    color: rgba(107, 114, 128, 1);
+  }
+  .margin-right {
+    margin-right: 20px;
+  }
+</style>

@@ -2,12 +2,12 @@ import { ComponentOptions } from "vue";
 
 import introDoc from "../../README.md";
 import buttonDoc from "../../packages/components/button/README.md";
-import themeDoc from "../../packages/theme/README.md";
+import themeDoc from "../../packages/theme-chalk/README.md";
 import utilsDoc from "../../packages/utils/README.md";
 
 declare type Menu = {
   name: string;
-  filePath: ComponentOptions;
+  component: ComponentOptions;
   path: string;
 };
 declare type SubMenu = {
@@ -21,17 +21,17 @@ const menuConfig: Array<SubMenu> = [
     children: [
       {
         name: "introduction",
-        filePath: introDoc,
+        component: introDoc,
         path: "intro",
       },
       {
         name: "Theme",
-        filePath: themeDoc,
+        component: themeDoc,
         path: "theme",
       },
       {
         name: "utils",
-        filePath: utilsDoc,
+        component: utilsDoc,
         path: "utils",
       },
     ],
@@ -41,7 +41,7 @@ const menuConfig: Array<SubMenu> = [
     children: [
       {
         name: "button",
-        filePath: buttonDoc,
+        component: buttonDoc,
         path: "button",
       },
     ],
@@ -59,6 +59,6 @@ export default menuConfig
     return {
       path: `${path?.toLowerCase()}`,
       name,
-      component: demo.filePath,
+      component: demo.component,
     };
   });
