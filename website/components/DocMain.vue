@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <article class="prose">
+    <article class="prose markdown-body">
       <router-view></router-view>
     </article>
   </div>
@@ -14,7 +14,6 @@
 }
   .text-gray-100 {
     color: #374151;
-    max-width: 65ch;
     color: rgba(243, 244, 246, 1);
   }
 </style>

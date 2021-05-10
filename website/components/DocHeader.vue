@@ -59,8 +59,7 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom-width: 1px;
-    border-color: rgba(229, 231, 235, 1);
+    border-bottom: 1px solid #E5E7EB;
     top: 0;
     right: 0;
     left: 0;

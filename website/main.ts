@@ -13,8 +13,7 @@ import ui from "seen-ui";
 import '@seen-ui/theme-chalk/src/index.scss';
 // import '../packages/theme-chalk/src/index.scss'
 
-// tailwindcsss  使用文档请查看 https://tailwindcss.com/
-import "./assets/style/main.css";
+import "./style/main.css";
 
 createApp(App)
   .use(ui, {
