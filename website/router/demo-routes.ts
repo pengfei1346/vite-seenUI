@@ -9,9 +9,11 @@ declare type Menu = {
   name: string;
   component: ComponentOptions;
   path: string;
+  meta?: any;
 };
 declare type SubMenu = {
   name: string;
+  meta?: any;
   children: Array<Menu>;
 };
 
@@ -42,6 +44,7 @@ const menuConfig: Array<SubMenu> = [
       {
         name: "button",
         component: buttonDoc,
+        meta: { requiresAuth: true },
         path: "button",
       },
     ],
@@ -56,6 +59,7 @@ export default menuConfig
   }, [])
   .map((demo: Menu) => {
     const path: string = demo.path;
+    const name: string = demo.name;
     return {
       path: `${path?.toLowerCase()}`,
       name,

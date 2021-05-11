@@ -11,8 +11,10 @@ export default createRouter({
     },
     {
       path: "/doc",
+      name: 'doc',
       component: DocMain,
-      children: demos,
-    },
+      // @ts-ignore
+      children: demos
+    }
   ],
 });

@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="bg-white transition-colors duration-500 dark:bg-gray-800 text-gray-900 dark:text-gray-200"
-  >
+  <div>
     <doc-header />
 
     <main class="main">
