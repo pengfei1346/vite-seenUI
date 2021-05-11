@@ -39,17 +39,16 @@ export default {
     }
   },
   setup() {
-    const route = useRoute()
+    // const route = useRoute()
     // console.log('route--------', route.name);
     // console.log('router--currentRoute------', router.currentRoute.value);
-    // 当参数更改时获取用户信息
-    watch(
-        () => route.path,
-        async (newParams: any) => {
-          // console.log('router----',router.options);
-          // userData.value = await fetchUser(newParams.id)
-        }
-    )
+    // watch(
+    //     () => route.path,
+    //     async (newParams: any) => {
+    //       // console.log('router----',router.options);
+    //       // userData.value = await fetchUser(newParams.id)
+    //     }
+    // )
 
     return {
       menuConfig,
