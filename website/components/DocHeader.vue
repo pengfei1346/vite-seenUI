@@ -7,7 +7,7 @@
     >
       <div>
         <router-link
-          class="block mr-4 text-2xl text-black dark:text-gray-200"
+          class="link"
           to="/"
         >
           seen-ui-vite
@@ -66,6 +66,12 @@ export default defineComponent({
     z-index: 100;
     height: 4rem;
     //border-color: rgba(107, 114, 128, 1);
+
+    .link {
+      color: #333;
+      font-weight: bold;
+      font-size: 22px;
+    }
 
     .container {
       width: 100%;

@@ -2,8 +2,8 @@
   <aside>
     <nav>
       <div
-        class="container"
-        v-for="subMenu in menuConfig"
+          class="container"
+          v-for="subMenu in menuConfig"
       >
         <h2>
           {{ subMenu.name }}
@@ -11,17 +11,13 @@
         <ul>
           <li v-for="menu in subMenu.children">
             <router-link
-              class="li-item"
-              :class="{
-                'hover:translate-x-2px': $route.name !== menu.name,
-                'hover:text-gray-900': $route.name !== menu.name,
-                'dark:hover:text-gray-100': $route.name !== menu.name,
-              }"
-              :to="`/doc/${menu.path}`"
+                class="li-item"
+                :class="name !== menu.name?'active':''"
+                :to="`/doc/${menu.path}`"
             >
               <span
-                :class="{ 'font-bold': $route.name === menu.name }"
-                >{{ menu.name }}</span
+                  :class="{ 'font-bold': name === menu.name }"
+              >{{ menu.name }}</span
               >
             </router-link>
           </li>
@@ -33,8 +29,27 @@
 
 <script lang="ts">
 import { menuConfig } from "../router/demo-routes";
+import { useRoute } from 'vue-router';
+import { watch } from 'vue'
+
 export default {
+  computed: {
+    name() {
+      return useRoute().name
+    }
+  },
   setup() {
+    // const route = useRoute()
+    // console.log('route--------', route.name);
+    // console.log('router--currentRoute------', router.currentRoute.value);
+    // watch(
+    //     () => route.path,
+    //     async (newParams: any) => {
+    //       // console.log('router----',router.options);
+    //       // userData.value = await fetchUser(newParams.id)
+    //     }
+    // )
+
     return {
       menuConfig,
     };
@@ -91,6 +106,16 @@ aside {
         }
       }
     }
+  }
+
+  .active {
+    transform: translateX(4px);
+    color: gray;
+  }
+
+  .font-bold {
+    font-weight: bold !important;
+    color: #3eaf7c !important;
   }
 }
 
