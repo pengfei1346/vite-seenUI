@@ -1,10 +1,19 @@
-import { getCurrentInstance } from "vue";
-import { ViteCreateOptions } from "./common";
+export interface InstallOptions {
+    size?: string;
+    zIndex: number;
+}
 
-export function useGlobalConfig(name = "$vitec"): ViteCreateOptions {
-  const vm: any = getCurrentInstance();
-  if (name in vm.proxy) {
-    return vm.proxy[name];
-  }
-  return {};
+let $vitec = { } as InstallOptions
+
+const setConfig = (option: InstallOptions): void => {
+    $vitec = option
+}
+
+const getConfig = (key: keyof InstallOptions): unknown => {
+    return $vitec[key]
+}
+
+export {
+    getConfig,
+    setConfig,
 }
