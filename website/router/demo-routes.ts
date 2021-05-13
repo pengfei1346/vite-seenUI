@@ -1,9 +1,9 @@
 import { ComponentOptions } from "vue";
 
 import introDoc from "../../README.md";
-import buttonDoc from "../../packages/components/button/README.md";
+import buttonDoc from "../../packages/button/README.md";
 import themeDoc from "../../packages/theme-chalk/README.md";
-import utilsDoc from "../../packages/utils/README.md";
+// import utilsDoc from "../../packages/utils/README.md";
 
 declare type Menu = {
   name: string;
@@ -31,11 +31,11 @@ const menuConfig: Array<SubMenu> = [
         component: themeDoc,
         path: "theme",
       },
-      {
-        name: "utils",
-        component: utilsDoc,
-        path: "utils",
-      },
+      // {
+      //   name: "utils",
+      //   component: utilsDoc,
+      //   path: "utils",
+      // },
     ],
   },
   {

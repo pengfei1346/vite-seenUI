@@ -5,11 +5,12 @@ import path from 'path';
 import { getPackagesSync } from '@lerna/project';
 import vue from 'rollup-plugin-vue'
 
-// 获取package.json,找到以 @will-ui 开头的
-const inputs = getPackagesSync().map(pck => pck.name).filter(name => name.includes('@will-ui'));
+// 获取package.json,找到以 @seen-ui 开头的
+const inputs = getPackagesSync().map(pck => pck.name).filter(name => name.includes('@seen-ui') && !name.includes('utils'));
 
+// console.log(inputs);
 export default inputs.map(name => {
-    const pckName = name.split('@will-ui')[1] // button icon
+    const pckName = name.split('@seen-ui')[1] // button icon
     return {
         input: path.resolve(__dirname, `../packages/${pckName}/index.ts`),
         output: {
@@ -33,7 +34,7 @@ export default inputs.map(name => {
             })
         ],
         external(id) { // 对vue本身 和 自己写的包 都排除掉不打包
-            return /^vue/.test(id) || /^@will-ui/.test(id)
+            return /^vue/.test(id) || /^@seen-ui/.test(id)
         },
     }
 })

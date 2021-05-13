@@ -1,0 +1,8 @@
+{
+  "name": "@seen-ui/input",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

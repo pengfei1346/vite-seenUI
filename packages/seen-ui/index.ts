@@ -1,46 +1,61 @@
-import { App } from "vue";
+import {App} from "vue";
 import Button from "@seen-ui/button";
-import { ViteCreateOptions } from "@seen-ui/utils";
+import Input from "@seen-ui/input";
+import type { InstallOptions } from '@seen-ui/utils/config'
+import { setConfig } from '@seen-ui/utils/config'
 
 const components = [
-  Button,
-  // Icon,
-  // ButtonGroup,
-  // Col,
-  // Row,
-  // Checkbox,
-  // CheckboxGroup,
-  // Transfer
+    Button,
+    Input
+    // Icon,
+    // ButtonGroup,
+    // Col,
+    // Row,
+    // Checkbox,
+    // CheckboxGroup,
+    // Transfer
 ];
 
 // const plugins = [
 //   Message
 // ];
 
-const install = (app: App): void => {
-  // 遍历组件，挂载到全局
-  components.forEach(component => {
-    app.component(component.name, component);
-  })
-  // 注册插件
-  // plugins.forEach(plugin => {
-  //   app.use(plugin as any);
-  // })
+
+const defaultInstallOpt: InstallOptions = {
+    size: "default",
+    zIndex: 2000,
 }
 
-// export default {
-//   install // 导出install方法。createApp({}).use() 需要install方法
-// }
+const install = (app: App, opt: InstallOptions): void => {
+    // , opt: InstallOptions
+    // const option = Object.assign(defaultInstallOpt, opt)
+    // locale(option.locale)
+    // if (option.i18n) {
+    //   i18n(option.i18n)
+    // }
+    // app.config.globalProperties.$ELEMENT = option
+    // setConfig(option)
 
-export default (app: App, options: ViteCreateOptions): void => {
-  const optionsResolver: ViteCreateOptions = Object.assign(
-    {
-      componentSize: "default",
-    },
-    options
-  );
+    const option = Object.assign(defaultInstallOpt, opt)
 
-  app.config.globalProperties.$vitec = optionsResolver;
+    app.config.globalProperties.$vitec = option;
+    setConfig(option)
 
-  app.component(`s-button`, Button);
-};
+    // 遍历组件，挂载到全局
+    components.forEach(component => {
+        app.component(component.name, component)
+    })
+
+    // plugins.forEach(plugin => {
+    //   app.use(plugin)
+    // })
+}
+
+export {
+    Button,
+    Input
+}
+
+export default {
+    install // 导出install方法。createApp({}).use() 需要install方法
+}
