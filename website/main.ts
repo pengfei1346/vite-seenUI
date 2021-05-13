@@ -10,7 +10,7 @@ import router from "./router";
 // dev mode 引入seen-ui
 import ui from "seen-ui";
 // import 'seen-ui/theme-chalk/src/index.scss';
-import '@seen-ui/theme-chalk/src/index.scss';
+import 'seen-theme-chalk/src/index.scss';
 // import '../packages/theme-chalk/src/index.scss'
 
 import "./style/main.css";
