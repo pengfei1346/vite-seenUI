@@ -8,7 +8,7 @@ This is a vue3 components use [vite](https://github.com/vitejs/vite).
 npm run dev
 ```
 
-Use [vite-plugin-vuedoc](https://github.com/JasKang/vite-plugin-vuedoc) to change markdown to vue , [Tailwind](https://tailwindcss.com/) for site css framework.
+Use [vite-plugin-vuedoc](https://github.com/JasKang/vite-plugin-vuedoc) to change markdown to vue.
 
 > this framework is still not the best.
 

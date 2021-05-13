@@ -1,35 +1,39 @@
-import resolve from "@rollup/plugin-node-resolve"; // 告诉 Rollup 如何查找外部模块
-import commonjs from "@rollup/plugin-commonjs"; // 将CommonJS模块转换为 ES2015 供 Rollup 处理
-import esbuild from "rollup-plugin-esbuild";
-import vue from "rollup-plugin-vue"; // 处理vue文件
-import fs from "fs-extra"; // 写文件
-import path from "path";
 
-const INPUT_PATH = path.resolve(__dirname, "../packages");
-const OUTPUT_PATH = path.resolve(__dirname, "../lib");
+import typescript from 'rollup-plugin-typescript2';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import path from 'path';
+import { getPackagesSync } from '@lerna/project';
+import vue from 'rollup-plugin-vue'
 
-let dirs = fs.readdirSync(`${INPUT_PATH}/components`).map((name) => {
-  return {
-    input: `${INPUT_PATH}/components/${name}/index.ts`,
-    external: ["vue"],
-    plugins: [resolve({ extensions: [".vue"] }), vue(), esbuild(), commonjs()],
-    output: {
-      name: "index",
-      file: `${OUTPUT_PATH}/${name}/index.js`,
-      format: "es",
-    },
-  };
-});
+// 获取package.json,找到以 @will-ui 开头的
+const inputs = getPackagesSync().map(pck => pck.name).filter(name => name.includes('@will-ui'));
 
-dirs.push({
-  input: `${INPUT_PATH}/seen-ui/index.ts`,
-  external: ["vue"],
-  plugins: [resolve({ extensions: [".vue"] }), vue(), esbuild(), commonjs()],
-  output: {
-    name: "index",
-    file: `${OUTPUT_PATH}/seen-ui/index.js`,
-    format: "es",
-  },
-});
-
-export default dirs;
+export default inputs.map(name => {
+    const pckName = name.split('@will-ui')[1] // button icon
+    return {
+        input: path.resolve(__dirname, `../packages/${pckName}/index.ts`),
+        output: {
+            format: 'es',
+            file: `lib/${pckName}/index.js`,
+        },
+        plugins: [
+            nodeResolve(),
+            vue({
+                target: 'browser'
+            }),
+            typescript({
+                tsconfigOverride: {
+                    compilerOptions: { // 打包单个组件的时候不生成ts声明文件
+                        declaration: false,
+                    },
+                    exclude: [
+                        'node_modules'
+                    ]
+                }
+            })
+        ],
+        external(id) { // 对vue本身 和 自己写的包 都排除掉不打包
+            return /^vue/.test(id) || /^@will-ui/.test(id)
+        },
+    }
+})
