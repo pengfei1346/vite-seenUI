@@ -6,6 +6,12 @@ declare module '*.vue' {
   export default component
 }
 
+declare module "*.md" {
+  import { ComponentOptions } from "vue";
+  const comp: ComponentOptions;
+  export default comp;
+}
+
 declare type Nullable<T> = T | null;
 
 declare type CustomizedHTMLElement<T> = HTMLElement & T

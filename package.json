@@ -17,10 +17,11 @@
     "build:lib": "cross-env LIBMODE=core webpack --config ./build/webpack.config.js",
     "build:lib-full": "cross-env LIBMODE=full webpack --config ./build/webpack.config.js",
     "build:esm-bundle": "rollup -c ./build/rollup.config.bundle.js",
-    "build:esm": "rollup -c ./build/rollup.config.js",
+    "build:esm": "node ./build/bincomp.js",
     "build:theme": " rimraf packages/theme-chalk/lib && cross-env NODE_ENV=production gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && rimraf packages/theme-chalk/lib",
     "deploy": "bash deploy.sh",
-    "build:v1-components": "cross-env NODE_ENV=production yarn rollup -c build/v1-rollup.config.js"
+    "build:v1-esm": "cross-env NODE_ENV=production yarn rollup -c build/v2-rollup.config.js",
+    "build:v2-esm": "rollup -c build/v3-rollup.config.js"
   },
   "dependencies": {},
   "devDependencies": {

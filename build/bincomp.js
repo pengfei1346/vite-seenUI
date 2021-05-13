@@ -8,9 +8,9 @@ const spinner = ora(`${chalk.blue('Building...')}`).start()
 const pkgs = getPackagesSync()
   .map(pkg => pkg.name)
   .filter(name =>
-    name.includes('@element-plus') &&
+    name.includes('@seen-ui') &&
     !name.includes('transition') &&
-    !name.includes('utils'),
+    !name.includes('utils')
   )
 const STEP = 4
 const START = 0

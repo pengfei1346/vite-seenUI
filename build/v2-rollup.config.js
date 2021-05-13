@@ -7,29 +7,32 @@ import path from "path";
 
 const INPUT_PATH = path.resolve(__dirname, "../packages");
 const OUTPUT_PATH = path.resolve(__dirname, "../lib");
+const noPrefixFile = /(utils|icon|seen-ui|theme-chalk)/
 
-let dirs = fs.readdirSync(`${INPUT_PATH}`).map((name) => {
-  return {
-    input: `${INPUT_PATH}/${name}/index.ts`,
-    external: ["vue"],
-    plugins: [resolve({ extensions: [".vue"] }), vue(), esbuild(), commonjs()],
-    output: {
-      name: "index",
-      file: `${OUTPUT_PATH}/${name}/index.js`,
-      format: "es",
-    },
-  };
-});
+let dirs = fs.readdirSync(`${INPUT_PATH}`)
+    .filter(name => !noPrefixFile.test(name))
+    .map((name) => {
+        return {
+            input: `${INPUT_PATH}/${name}/index.ts`,
+            external: ["vue"],
+            plugins: [resolve({extensions: [".vue"]}), vue(), esbuild(), commonjs()],
+            output: {
+                name: "index",
+                file: `${OUTPUT_PATH}/${name}/index.js`,
+                format: "es",
+            },
+        };
+    });
 
 dirs.push({
-  input: `${INPUT_PATH}/seen-ui/index.ts`,
-  external: ["vue"],
-  plugins: [resolve({ extensions: [".vue"] }), vue(), esbuild(), commonjs()],
-  output: {
-    name: "index",
-    file: `${OUTPUT_PATH}/seen-ui/index.js`,
-    format: "es",
-  },
+    input: `${INPUT_PATH}/seen-ui/index.ts`,
+    external: ["vue"],
+    plugins: [resolve({extensions: [".vue"]}), vue(), esbuild(), commonjs()],
+    output: {
+        name: "index",
+        file: `${OUTPUT_PATH}/seen-ui/index.js`,
+        format: "es",
+    },
 });
 
 export default dirs;
