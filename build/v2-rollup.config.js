@@ -8,9 +8,9 @@ import path from "path";
 const INPUT_PATH = path.resolve(__dirname, "../packages");
 const OUTPUT_PATH = path.resolve(__dirname, "../lib");
 
-let dirs = fs.readdirSync(`${INPUT_PATH}/components`).map((name) => {
+let dirs = fs.readdirSync(`${INPUT_PATH}`).map((name) => {
   return {
-    input: `${INPUT_PATH}/components/${name}/index.ts`,
+    input: `${INPUT_PATH}/${name}/index.ts`,
     external: ["vue"],
     plugins: [resolve({ extensions: [".vue"] }), vue(), esbuild(), commonjs()],
     output: {

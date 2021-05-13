@@ -1,5 +1,5 @@
 {
-  "name": "@seen-ui/theme-chalk",
+  "name": "seen-theme-chalk",
   "version": "1.0.0",
   "description": "> TODO: description",
   "main": "lib/index.css",
