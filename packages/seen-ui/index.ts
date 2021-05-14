@@ -1,12 +1,12 @@
 import {App} from "vue";
-import Button from "@seen-ui/button";
-import Input from "@seen-ui/input";
+import SButton from "@seen-ui/button";
+// import SInput from "@seen-ui/input";
 import type { InstallOptions } from '@seen-ui/utils/config'
 import { setConfig } from '@seen-ui/utils/config'
 
 const components = [
-    Button,
-    Input
+    SButton,
+    // SInput
     // Icon,
     // ButtonGroup,
     // Col,
@@ -16,8 +16,8 @@ const components = [
     // Transfer
 ];
 
-// const plugins = [
-//   Message
+// const plugins: any[] = [
+//   // Message
 // ];
 
 
@@ -27,18 +27,13 @@ const defaultInstallOpt: InstallOptions = {
 }
 
 const install = (app: App, opt: InstallOptions): void => {
-    // , opt: InstallOptions
-    // const option = Object.assign(defaultInstallOpt, opt)
+    const option = Object.assign(defaultInstallOpt, opt)
     // locale(option.locale)
     // if (option.i18n) {
     //   i18n(option.i18n)
     // }
-    // app.config.globalProperties.$ELEMENT = option
-    // setConfig(option)
 
-    const option = Object.assign(defaultInstallOpt, opt)
-
-    app.config.globalProperties.$vitec = option;
+    app.config.globalProperties.$SEEN = option;
     setConfig(option)
 
     // 遍历组件，挂载到全局
@@ -52,8 +47,9 @@ const install = (app: App, opt: InstallOptions): void => {
 }
 
 export {
-    Button,
-    Input
+    SButton,
+    // SInput
+    install,
 }
 
 export default {

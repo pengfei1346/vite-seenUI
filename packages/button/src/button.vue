@@ -19,9 +19,9 @@ export default defineComponent({
     size: String,
   },
   setup(props, ctx) {
-    const $vitec = useGlobalConfig();
+    const $SEEN = useGlobalConfig();
     const buttonSize = computed(() => {
-      return props.size || $vitec.size || "default";
+      return props.size || $SEEN.size || "default";
     });
 
     return {

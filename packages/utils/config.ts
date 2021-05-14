@@ -3,14 +3,14 @@ export interface InstallOptions {
     zIndex: number;
 }
 
-let $vitec = { } as InstallOptions
+let $SEEN = { } as InstallOptions
 
 const setConfig = (option: InstallOptions): void => {
-    $vitec = option
+    $SEEN = option
 }
 
 const getConfig = (key: keyof InstallOptions): unknown => {
-    return $vitec[key]
+    return $SEEN[key]
 }
 
 export {
