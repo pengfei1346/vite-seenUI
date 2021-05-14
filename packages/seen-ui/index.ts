@@ -1,12 +1,12 @@
 import {App} from "vue";
 import SButton from "@seen-ui/button";
-import SInput from "@seen-ui/input";
+// import SInput from "@seen-ui/input";
 import type { InstallOptions } from '@seen-ui/utils/config'
 import { setConfig } from '@seen-ui/utils/config'
 
 const components = [
     SButton,
-    SInput
+    // SInput
     // Icon,
     // ButtonGroup,
     // Col,
@@ -48,7 +48,8 @@ const install = (app: App, opt: InstallOptions): void => {
 
 export {
     SButton,
-    SInput
+    // SInput
+    install,
 }
 
 export default {
