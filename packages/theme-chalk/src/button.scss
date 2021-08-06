@@ -1,28 +1,28 @@
 .btn {
-  border-radius: 0.25rem;
+  border-radius: 4px;
   cursor: pointer;
   background: #fff;
   border: 1px solid #DCDFE6;
 }
 .btn-default {
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
 
   + .btn {
-    margin-left: 1rem;
+    margin-left: 16px;
   }
 }
 .btn-small {
-  padding: 0.25rem 0.5rem;
+  padding: 4px 8px;
 
   + .btn {
-    margin-left: 1rem;
+    margin-left: 16px;
   }
 }
 .btn-large {
-  padding: 1rem 2rem;
+  padding: 16px 32px;
 
   + .btn {
-    margin-left: 1rem;
+    margin-left: 16px;
   }
 }
 
